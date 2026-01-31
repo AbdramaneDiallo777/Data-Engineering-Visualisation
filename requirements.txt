@@ -1,0 +1,22 @@
+data-sales-pipeline/
+├── data/               # Dossier ignoré par git (.gitignore)
+│   ├── raw/            # Données brutes (originales)
+│   └── processed/      # Données nettoyées (output de l'ETL)
+├── notebooks/          # Exploration (EDA) et tests de modèles
+├── src/                # Code source modulaire
+│   ├── etl/            # Scripts de nettoyage et transformation
+│   ├── models/         # Scripts de classification (ML)
+│   └── app/            # Code de l'application Dash
+├── sql/                # Requêtes SQL de création de tables/vues
+├── requirements.txt    # Dépendances (pandas, plotly, dash, etc.)
+└── main.py             # Point d'entrée pour exécuter le pipeline
+
+
+pandas
+numpy
+sqlalchemy
+scikit-learn
+plotly
+dash
+pyyaml
+pyarrow
