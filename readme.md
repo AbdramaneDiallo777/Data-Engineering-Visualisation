@@ -1,5 +1,5 @@
 #  **Data Engineering & Analytics - Superstore Sales Dashboard**
-# Auteur : Abdramane Diallo 
+Auteur : Abdramane Diallo 
 Date : 27/01/2026
 
 **Projet complet Data Engineering** : ETL 10 000 transactions → Dashboard interactif Plotly/Dash → Prédicteur ML temps réel
