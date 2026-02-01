@@ -61,7 +61,7 @@ def run_etl():
     print(df.groupby('State')['profit_net'].sum().head())
 
     # 3. LOAD
-    save_processed_parquet(df, "supertore_clean.parquet")
+    save_processed_parquet(df, "transactions_clean.parquet")
     print("=== ETL TERMINÉ ✅ ===")
 
 if __name__ == "__main__":

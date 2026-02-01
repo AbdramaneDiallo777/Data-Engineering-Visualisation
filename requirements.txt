@@ -12,11 +12,13 @@ data-sales-pipeline/
 └── main.py             # Point d'entrée pour exécuter le pipeline
 
 
-pandas
-numpy
-sqlalchemy
-scikit-learn
-plotly
-dash
-pyyaml
+pandas>=2.0.0
+openpyxl
 pyarrow
+scikit-learn
+joblib
+dash>=2.14.0
+plotly>=5.15.0
+numpy
+dash-bootstrap-components
+
