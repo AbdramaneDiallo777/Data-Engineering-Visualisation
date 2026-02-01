@@ -1,110 +1,89 @@
-#  Sales Data Pipeline - ETL & Visualisation
-
-**Projet Data Engineering complet** : traitement 10k transactions Superstore, modélisation client, dashboard Dash/Plotly.
-
-##  Statut actuel
- **ETL fonctionnel** : `ventes.xls` → `transactions_clean.parquet`
-
-##  Quick Start
-```bash
-pip install -r requirements.txt
-python main.py  # Lance ETL
-
 #  **Data Engineering & Analytics - Superstore Sales Dashboard**
 
-**Projet complet Data Engineering** : ETL de 10 000 transactions → Dashboard interactif Plotly/Dash → Prédicteur ML temps réel pour segmenter les clients.
+**Projet complet Data Engineering** : ETL 10 000 transactions → Dashboard interactif Plotly/Dash → Prédicteur ML temps réel
 
-[![Dashboard](screenshots/dashboard-preview.png)](http://127.0.0.1:8050)
+[![Dashboard Preview](screenshots/dashboard-preview.png)](http://127.0.0.1:8050)
 
 ##  **Contexte métier**
 
-**Superstore** est une chaîne de magasins américains avec **10 000 transactions** sur 4 ans (793 clients uniques, 49 États US).
+**Superstore** : chaîne magasins US avec **10 000 transactions** (793 clients, 49 États).
 
-**Problèmes business identifiés :**
-- Données brutes Excel non structurées
-- Pas de KPIs temps réel (CA, profit, clients)
+**Problèmes identifiés :**
+- Données Excel brutes non structurées
+- Pas de KPIs temps réel
 - Segmentation clients manuelle
-- Décision marketing sans données prédictives
+- Décisions marketing sans prédiction
 
-##  **Objectifs du projet**
+##  **Objectifs**
 
 | **Phase** | **Objectif** | **Résultat** |
 |-----------|--------------|--------------|
-| **ETL** | Nettoyer + transformer Excel → Parquet | 9 994 transactions prêtes |
-| **Analytics** | KPIs + graphiques interactifs | CA $2.5M / Profit $284k |
-| **Machine Learning** | Segmenter 793 clients | 3 clusters prédictifs |
-| **Dashboard** | Interface décisionnelle temps réel | Prédicteur + filtres live |
+| **ETL** | Excel → Parquet optimisé | 9 994 transactions prêtes |
+| **Analytics** | KPIs + graphiques interactifs | CA **$2.5M** / Profit **$284k** |
+| **Machine Learning** | Segmenter 793 clients | **3 clusters prédictifs** |
+| **Dashboard** | Interface décisionnelle | Prédicteur ML + filtres live |
 
-##  **Quick Start** (2 minutes)
+##  **Quick Start** )
 
 ```bash
-# 1. Clone + dépendances
 git clone https://github.com/AbdramaneDiallo777/Data-Engineering-Visualisation.git
 cd Data-Engineering-Visualisation
 pip install -r requirements.txt
 
-# 2. Données (votre Excel dans data/raw/)
-# 3. ETL
+# ETL + données
 python main.py
 
-# 4. Modèle ML
+# Modèle ML
 python pipeline_ml.py
 
-# 5. Dashboard LIVE
+# Dashboard LIVE
 python src/app/dashboard.py
-# Ouvrir http://127.0.0.1:8050
+# → http://127.0.0.1:8050
 
-## Architecture technique
+Architecture
 
 graph TD
-    A[Excel 10k transactions] --> B[ETL Pandas]
-    B --> C[data/processed/transactions_clean.parquet]
-    C --> D[K-Means Scikit-learn]
-    D --> E[data/processed/clients_clusters.parquet]
-    E --> F[Dash/Plotly Dashboard]
-    F --> G[http://localhost:8050](http://localhost:8050)
+    A[Excel<br/>10k transactions] --> B[ETL Pandas]
+    B --> C[data/processed<br/>transactions_clean.parquet]
+    C --> D[K-Means<br/>Scikit-learn]
+    D --> E[data/processed<br/>clients_clusters.parquet]
+    E --> F[Dash/Plotly<br/>Dashboard]
+    F --> G["Dashboard<br/>http://127.0.0.1:8050"]
 
-
-## Résultats du projet
-
-| Métrique     | Valeur     | Insight business     |
+Résultats clés
+| Métrique     | Valeur     | Insight              |
 | ------------ | ---------- | -------------------- |
-| Transactions | 9 994      | Pipeline ETL 100%    |
-| CA Total     | $2,559,844 | California = 32% CA  |
-| Profit Net   | $284,124   | Marge moyenne 11.1%  |
-| Clients      | 793        | 17% "Gros comptes"   |
-| États        | 49         | Coverage nationale   |
-| Clusters     | 3          | Segmentation précise |
+| Transactions | 9 994      | ETL 100%             |
+| CA Total     | $2,559,844 | California = 32%     |
+| Profit Net   | $284,124   | Marge 11.1%          |
+| Clients      | 793        | 17% VIP              |
+| États        | 49         | Couverture nationale |
+| Clusters     | 3          | Prédiction précise   |
 
-## Dashboard interactif
+Dashboard interactif
 
  KPIs temps réel (CA/Profit/Clients/États)
- Prédicteur ML live : [3 cmd][120$][360$] → "CLIENT RÉGULIER"
- Graphiques : États / Segments / Évolution temporelle
- Filtres : État + Date range + Reset
+ **Prédicteur ML live** : [3 cmd][120$][360$] → "CLIENT RÉGULIER"
+ Graphiques : États / Segments / Évolution
+ Filtres : État + Date + Reset
  Design responsive Bootstrap
 
-## Stack technologique
-
+Stack technologique
 Backend Data    : Python 3.13, Pandas, Parquet, Scikit-learn
-Dashboard       : Dash 3.0, Plotly, dash-bootstrap-components
-DevOps          : Git, Modular structure, requirements.txt
-ML Pipeline     : K-Means clustering, StandardScaler, joblib
+Dashboard       : Dash 3.0, Plotly, dash-bootstrap-components  
+DevOps          : Git, Modular, requirements.txt
+ML Pipeline     : K-Means, StandardScaler, joblib
 
-## Segmentation clients prédictive (K-Means)
+Segmentation prédictive K-Means
+| Cluster | Profil          | Clients   | Stratégie       |
+| ------- | --------------- | --------- | --------------- |
+| 0       |  Gros comptes | 15% (119) | Prioriser sales |
+| 1       |  Réguliers     | 55% (436) | Fidélisation    |
+| 2       |  Potentiels   | 30% (238) | Prospection     |
 
-| Cluster | Profil          | Nb clients | Stratégie       |
-| ------- | --------------- | ---------- | --------------- |
-| 0       |  Gros comptes | 15% (119)  | Prioriser sales |
-| 1       |  Réguliers     | 55% (436)  | Fidélisation    |
-| 2       |  Potentiels   | 30% (238)  | Prospection     |
-
-Silhouette Score : 0.32 (excellent pour business)
-
- ## Démonstration
-
-    ETL : python main.py → transactions_clean.parquet (588 Ko)
-    ML : python pipeline_ml.py → kmeans.pkl entraîné
-    Predict : [15][250][3750] → " GROS COMPTE"
-    Dashboard : http://127.0.0.1:8050 → KPIs + graphiques live
+Démonstration
+1. python main.py           # ETL 
+2. python pipeline_ml.py    # ML   
+3. python src/app/dashboard.py  # LIVE 
+4. Test prédicteur :  → " GROS COMPTE"[1][2]
 
