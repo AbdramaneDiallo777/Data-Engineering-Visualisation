@@ -54,7 +54,7 @@ graph TD
 Résultats clés
 |  Métrique      | Valeur      | Insight              |
 | ------------ | ---------- | -------------------- |
-|  Transactions **| 9 994      | ETL 100%             |
+|  Transactions | 9 994      | ETL 100%             |
 |  CA Total     | $2,297,201 | California = 32%     |
 |  Profit Net    | $216,989   | Marge 11.1%          |
 |  Clients      | 793        | 17% VIP              |
