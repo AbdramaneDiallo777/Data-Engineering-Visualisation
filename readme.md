@@ -1,4 +1,6 @@
 #  **Data Engineering & Analytics - Superstore Sales Dashboard**
+# Auteur : Abdramane Diallo 
+Date : 27/01/2026
 
 **Projet complet Data Engineering** : ETL 10 000 transactions → Dashboard interactif Plotly/Dash → Prédicteur ML temps réel
 
@@ -19,7 +21,7 @@
 | **Phase** | **Objectif** | **Résultat** |
 |-----------|--------------|--------------|
 | **ETL** | Excel → Parquet optimisé | 9 994 transactions prêtes |
-| **Analytics** | KPIs + graphiques interactifs | CA **$2.5M** / Profit **$284k** |
+| **Analytics** | KPIs + graphiques interactifs | CA **$2.2M** / Profit **$216k** |
 | **Machine Learning** | Segmenter 793 clients | **3 clusters prédictifs** |
 | **Dashboard** | Interface décisionnelle | Prédicteur ML + filtres live |
 
