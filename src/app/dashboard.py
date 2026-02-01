@@ -1,4 +1,4 @@
-# src/app/dashboard.py - VERSION FINALE avec RESET
+
 import dash
 from dash import dcc, html, Input, Output, callback, ALL, ctx
 import plotly.express as px
@@ -15,7 +15,7 @@ MODELS_DIR = BASE_DIR / "models"
 
 # Données
 df = pd.read_parquet(DATA_DIR / "transactions_clean.parquet")
-print("✅ Transactions:", df.shape)
+print(" Transactions:", df.shape)
 
 # Modèle ML
 PREDICT_MODE = False
@@ -23,16 +23,16 @@ try:
     kmeans = joblib.load(MODELS_DIR / "kmeans.pkl")
     scaler = joblib.load(MODELS_DIR / "scaler.pkl")
     PREDICT_MODE = True
-    print("✅ Prédicteur K-Means chargé")
+    print(" Prédicteur K-Means chargé")
 except:
-    print("⚠️ Modèle manquant")
+    print(" Modèle manquant")
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Dummy trigger pour graphiques
 app.layout = dbc.Container([
     dbc.Row([
-        dbc.Col(html.H1("🛒 Sales Dashboard + ML Predictor", 
+        dbc.Col(html.H1(" Sales Dashboard + ML Predictor", 
                        className="text-center text-primary mb-4"))
     ]),
     
@@ -47,7 +47,7 @@ app.layout = dbc.Container([
     # PRÉDICTEUR + RESET
     dbc.Row([
         dbc.Col([
-            html.H4("🔮 Prédire Nouveau Client", className="text-center mb-4"),
+            html.H4(" Prédire Nouveau Client", className="text-center mb-4"),
             dbc.Row([
                 dbc.Col([
                     dcc.Input(id="freq-input", type="number", value=3,
@@ -62,9 +62,9 @@ app.layout = dbc.Container([
                             placeholder="CA total ($)", className="form-control mb-2")
                 ], width=3),
                 dbc.Col([
-                    html.Button("🚀 PREDIRE", id="predict-btn", 
+                    html.Button(" PREDIRE", id="predict-btn", 
                                className="btn btn-success btn-block h-100 me-2"),
-                    html.Button("🔄 RESET", id="reset-btn", 
+                    html.Button(" RESET", id="reset-btn", 
                                className="btn btn-secondary btn-block h-100")
                 ], width=3)
             ]),
@@ -76,7 +76,7 @@ app.layout = dbc.Container([
     dbc.Row([
         dbc.Col(dcc.Dropdown(id="state-dropdown", placeholder="Filtrer État"), width=4),
         dbc.Col(dcc.DatePickerRange(id="date-picker"), width=4),
-        dbc.Col(html.Button("🔄 Reset Filtres", id="filter-reset", 
+        dbc.Col(html.Button(" Reset Filtres", id="filter-reset", 
                            className="btn btn-outline-secondary"), width=4)
     ], className="mb-4"),
     
@@ -136,9 +136,9 @@ def predict_and_reset(predict_clicks, reset_clicks, freq, panier, ca):
             features = np.array([[freq, panier, ca, ca*0.1]])
             cluster = kmeans.predict(scaler.transform(features))[0]
             profiles = {
-                0: "💎 GROS COMPTE (prioriser sales)",
-                1: "✅ CLIENT RÉGULIER (fidéliser)", 
-                2: "🎯 CLIENT POTENTIEL (prospecter)"
+                0: " GROS COMPTE (prioriser sales)",
+                1: " CLIENT RÉGULIER (fidéliser)", 
+                2: " CLIENT POTENTIEL (prospecter)"
             }
             result = html.Div([
                 html.H3(profiles.get(cluster, "❓"), className="text-success mb-2"),
@@ -147,7 +147,7 @@ def predict_and_reset(predict_clicks, reset_clicks, freq, panier, ca):
             ], className="bg-success bg-opacity-10 p-4 rounded shadow")
             return (result, freq, panier, ca)
         except:
-            return ("❌ Erreur prédiction", freq, panier, ca)
+            return (" Erreur prédiction", freq, panier, ca)
     
     return ("Cliquez PREDIRE ou RESET", dash.no_update, dash.no_update, dash.no_update)
 
