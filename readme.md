@@ -25,7 +25,6 @@
 
 ##  **Quick Start** )
 
-```bash
 git clone https://github.com/AbdramaneDiallo777/Data-Engineering-Visualisation.git
 cd Data-Engineering-Visualisation
 pip install -r requirements.txt
@@ -51,14 +50,14 @@ graph TD
     F --> G["Dashboard<br/>http://127.0.0.1:8050"]
 
 Résultats clés
-| Métrique     | Valeur     | Insight              |
+| ** Métrique **     |** Valeur **     |** Insight **             |
 | ------------ | ---------- | -------------------- |
-| Transactions | 9 994      | ETL 100%             |
-| CA Total     | $2,559,844 | California = 32%     |
-| Profit Net   | $284,124   | Marge 11.1%          |
-| Clients      | 793        | 17% VIP              |
-| États        | 49         | Couverture nationale |
-| Clusters     | 3          | Prédiction précise   |
+| ** Transactions **| 9 994      | ETL 100%             |
+| ** CA Total **    | $2,559,844 | California = 32%     |
+| ** Profit Net **   | $284,124   | Marge 11.1%          |
+| ** Clients **     | 793        | 17% VIP              |
+| ** États  **      | 49         | Couverture nationale |
+| ** Clusters **     | 3          | Prédiction précise   |
 
 Dashboard interactif
 
@@ -75,7 +74,7 @@ DevOps          : Git, Modular, requirements.txt
 ML Pipeline     : K-Means, StandardScaler, joblib
 
 Segmentation prédictive K-Means
-| Cluster | Profil          | Clients   | Stratégie       |
+|** Cluster **| ** Profil **         |** Clients **  |** Stratégie **      |
 | ------- | --------------- | --------- | --------------- |
 | 0       |  Gros comptes | 15% (119) | Prioriser sales |
 | 1       |  Réguliers     | 55% (436) | Fidélisation    |
